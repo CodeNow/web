@@ -6,8 +6,6 @@ services:
       - "27017:27017"
   chrome:
     image: selenium/standalone-chrome
-    links:
-      - "web"
     ports:
       - "4444:4444"
   api:
@@ -15,29 +13,17 @@ services:
       context: git@github.com:CodeNow/api-demo
     ports:
       - "3000:3000"
-    links:
-      - "db"
     environment:
       - MONGODB_HOST=db
   web:
     build: .
     ports:
       - "80:80"
-    links:
-      - "api"
     environment:
-      - API_HOST=api:3000
+      - API_HOST=web-demp-api-staging-codenow.runnablecloud.com:3000
   e2e:
     build: 
       context: git@github.com:CodeNow/e2e-demo
-    depends_on:
-      - db
-      - api
-      - web
-      - chrome
-    links:
-      - "web"
-      - "chrome"
     environment:
       - WEB_URL=http://web
       - NODE_ENV=docker

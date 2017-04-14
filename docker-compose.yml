@@ -9,15 +9,11 @@ services:
       context: git@github.com:CodeNow/api-demo
     ports:
       - "3000:3000"
-    links:
-      - "db"
     environment:
       - MONGODB_HOST=db
   web:
     build: .
     ports:
       - "80:80"
-    links:
-      - "api"
     environment:
-      - API_HOST=api:3000
+      - API_HOST=web-demp-api-staging-codenow.runnablecloud.com:3000

@@ -6,7 +6,7 @@ services:
       - "27017:27017"
   api:
     build: 
-      context: git@github.com:CodeNow/api-demo.git
+      context: git@github.com:CodeNow/api-demo
     ports:
       - "3000:3000"
     links:

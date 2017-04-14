@@ -20,7 +20,7 @@ services:
     ports:
       - "80:80"
     environment:
-      - API_HOST=web-demp-api-staging-codenow.runnablecloud.com:3000
+      - API_HOST=web-demo-api-staging-codenow.runnablecloud.com:3000
   e2e:
     build: 
       context: git@github.com:CodeNow/e2e-demo

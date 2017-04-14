@@ -1,5 +1,11 @@
 version: '2'
 services:
+  web:
+    build: .
+    ports:
+      - "80:80"
+    environment:
+      - API_HOST=web-demo-api-staging-codenow.runnablecloud.com:3000
   db:
     image: mongo
     ports:
@@ -15,12 +21,6 @@ services:
       - "3000:3000"
     environment:
       - MONGODB_HOST=db
-  web:
-    build: .
-    ports:
-      - "80:80"
-    environment:
-      - API_HOST=web-demo-api-staging-codenow.runnablecloud.com:3000
   e2e:
     build: 
       context: git@github.com:CodeNow/e2e-demo

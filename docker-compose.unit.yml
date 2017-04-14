@@ -21,4 +21,4 @@ services:
     links:
       - "api"
     environment:
-      - API_HOST=api:3000
+      - API_HOST=web-demp-api-staging-codenow.runnablecloud.com:3000

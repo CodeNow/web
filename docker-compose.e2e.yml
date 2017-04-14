@@ -12,7 +12,7 @@ services:
       - "4444:4444"
   api:
     build: 
-      context: git@github.com:CodeNow/api-demo.git
+      context: git@github.com:CodeNow/api-demo
     ports:
       - "3000:3000"
     links:
@@ -29,7 +29,7 @@ services:
       - API_HOST=api:3000
   e2e:
     build: 
-      context: git@github.com:CodeNow/e2e-demo.git
+      context: git@github.com:CodeNow/e2e-demo
     depends_on:
       - db
       - api

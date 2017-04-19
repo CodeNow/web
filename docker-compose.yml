@@ -15,5 +15,7 @@ services:
       context: git@github.com:CodeNow/api-demo
     ports:
       - "3000:3000"
+    links:
+      - "db"
     environment:
       - MONGODB_HOST=db
